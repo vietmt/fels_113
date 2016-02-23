@@ -1,0 +1,2 @@
+<%= provide :title, t("home") %>
+<%= render signed_in? ? "user_info" : "welcome" %>
