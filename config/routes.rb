@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy"
   resources :users, except: :destroy
+  resources :relationships, only: [:create, :destroy]
 end
