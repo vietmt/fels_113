@@ -1,0 +1,16 @@
+default_avatar: "rails.png"
+number_word_in_lessons: 20
+number_answers: 4
+size_image_of_word: 60
+activity:
+  follow: "follow"
+  unfollow: "unfollow"
+  learned: "learned"
+  learning: "learning"
+option:
+  - all_word
+  - learned
+  - no_learn
+follow_methods:
+  - following
+  - followers

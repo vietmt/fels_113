@@ -1,0 +1,11 @@
+<div class="stats">
+  <% Settings.follow_methods.each do |method_name| %>
+    <%= link_to user_relationships_path current_user,
+      option: "#{method_name}" do %>
+      <strong id="#{method_name}" class="stat">
+        <%= @user.following.count %>
+      </strong>
+      <%= t "#{method_name}" %>
+    <% end %>
+  <% end %>
+</div>
