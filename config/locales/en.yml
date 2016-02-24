@@ -28,3 +28,8 @@ en:
     form: "The form contains"
     error: "error"
   comfirmation: "Comfirmation"
+  relationship:
+    followed: "You already followed"
+    unfollowed: "You already unfollowed"
+    follow: "Follow"
+    unfollow: "Unfollow"
