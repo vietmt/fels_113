@@ -1,0 +1,6 @@
+<%= provide :title, t("user.list") %>
+<ul>
+  <%= will_paginate %>
+  <%= render @users %>
+  <%= will_paginate %>
+</ul>
