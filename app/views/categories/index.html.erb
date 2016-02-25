@@ -1,0 +1,4 @@
+<% provide :title, t("category.list") %>
+  <h1><%= t "category.categories" %><h1>
+  <div class="categories"><%= render @categories %></div>
+  <%= will_paginate %>

@@ -1,0 +1,12 @@
+<% provide :title, t("category.list") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="entry_form">
+      <%= render "category_form" %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= t "category.list" %></h3>
+    <%= render "categories" %>
+  </div>
+</div>

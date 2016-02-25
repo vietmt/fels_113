@@ -1,0 +1,10 @@
+<div class="list-group">
+  <div class="list-group-item list-group-item-success">
+    <h3 class="list-group-item-heading">
+      <%= link_to category.name, category %>
+    </h3>
+    <p class="list-group-item-text">
+      <%= category.description.truncate Settings.number_description_truncate %>
+    </p>
+  </div>
+</div>

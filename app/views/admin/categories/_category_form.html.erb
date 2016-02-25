@@ -1,0 +1,11 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/error_messages", object: @category %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <%= f.submit f.object.new_record? ? t("category.create") : t("savechange"),
+    class: "btn btn-primary" %>
+<% end %>
