@@ -6,6 +6,7 @@ en:
   news: "News"
   home: "Home"
   help: "Help"
+  areyousure: "Are you sure?"
   signin:
     name: "Sign in"
     error: "Invalid email/password combination"
@@ -33,3 +34,15 @@ en:
     unfollowed: "You already unfollowed"
     follow: "Follow"
     unfollow: "Unfollow"
+  category:
+    name: "Category"
+    announce: "You've learned 0/36"
+    categories: "Categories"
+    list: "Category List"
+    description: "Description"
+    create: "Create category"
+    createcomplete: "Create category complete"
+    updated: "Category updated"
+  admin:
+    requiresignin: "You must sign in account Admin"
+
