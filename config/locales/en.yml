@@ -6,6 +6,7 @@ en:
   news: "News"
   home: "Home"
   help: "Help"
+  delete: "Delete"
   areyousure: "Are you sure?"
   signin:
     name: "Sign in"

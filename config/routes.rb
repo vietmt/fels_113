@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "categories#index"
     resources :categories
+    resources :users, only: [:index, :destroy]
   end
   root "static_pages#home"
   get "help" => "static_pages#help"

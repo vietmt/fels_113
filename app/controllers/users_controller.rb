@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :signed, only: [:new, :create]
 
   def index
-    @users = User.paginate page: params[:page], per_page: 10
+    @users = User.paginate page: params[:page], per_page: Settings.number_user_in_list
   end
 
   def show
