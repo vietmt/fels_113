@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :users, except: :destroy
   resources :relationships, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
+  resources :words, only: :index
+  resources :lessons
 end

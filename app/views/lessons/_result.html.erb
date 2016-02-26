@@ -1,0 +1,14 @@
+<h1><%= t "lesson.result" %></h1>
+<%= t "lesson.userlearn" %>: <%= link_to @lesson.user.name, @lesson.user %>
+<% @lesson.lesson_words.each do |ls| %>
+  <li>
+    <%= ls.word.content %>|
+    <% if ls.answer.nil? %>
+      <%= t "answer.requireselect" %>
+    <% else %>
+      <%= t "your_answer" %>: <%= ls.answer.content %>|
+      <%= ls.answer.is_correct ? t("answer.true") :
+        t("answer.false") %>
+    <% end %>
+  </li>
+<% end %>
