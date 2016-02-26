@@ -1,11 +1,18 @@
+<% @user ||= current_user %>
 <div class="stats">
   <% Settings.follow_methods.each do |method_name| %>
-    <%= link_to user_relationships_path current_user,
-      option: "#{method_name}" do %>
-      <strong id="#{method_name}" class="stat">
-        <%= @user.following.count %>
+    <%= link_to user_relationships_path @user,
+      type: "#{method_name}" do %>
+      <strong id=<%="#{method_name}"%> class="stat">
+        <%= @user.send(method_name).count %>
       </strong>
       <%= t "#{method_name}" %>
     <% end %>
   <% end %>
+  <strong class="stat">
+    <%= link_to words_path(category_id: "", option: "learned", commit: "Filter", user_id: @user.id) do %>
+    <%= @words.count %>
+    <%= t "word.words" %>
+    <% end %>
+  </strong>
 </div>

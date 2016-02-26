@@ -1,3 +1,26 @@
 <% provide :title, t("user.profile") %>
-<%= render "follow_form" if signed_in? %>
-<%= render @user%>
+<%if signed_in?%>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <%= render @user%>
+        <%= render "follow_form" if signed_in? %>
+        <%= render "static_pages/stats" %>
+      </div>
+      <div class="col-xs-8">
+        <hr>
+        <div class="col-md-12">
+          <h3><%= t "activity.name" %></h3>
+          <% if @activities.present? && @activities.any? %>
+            <ul>
+              <%= render @activities %>
+              <%= will_paginate @activities %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%= render "welcome" %>
+<% end %>

@@ -8,12 +8,18 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = current_user.lessons.new category_id: @category.id
-    if @lesson.save
-      flash[:success] = t "lesson.newcomplete"
-      redirect_to @lesson
-    else
-      flash[:danger] = t "lesson.newfail"
+    @words = @category.words.send ("no_learn"), current_user.id
+    if @words.count ==0
+      flash[:danger] = "All words was learned"
       redirect_to categories_path
+    else
+     if @lesson.save
+        flash[:success] = t "lesson.newcomplete"
+          redirect_to @lesson
+      else
+        flash[:danger] = t "lesson.newfail"
+        redirect_to categories_path
+      end
     end
   end
 

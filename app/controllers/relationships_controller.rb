@@ -1,6 +1,11 @@
 class RelationshipsController < ApplicationController
 
   before_action :authorize_user
+  def index
+    type = params[:type]
+    @user = User.find params[:user_id]
+    @users = @user.send(type).paginate page: params[:page]
+  end
 
   def create
     @user = User.find params[:relationship][:followed_id]

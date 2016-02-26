@@ -6,10 +6,10 @@ class Admin::WordsController < ApplicationController
     @word = @category.words.new word_params
     if @word.save
       flash[:success] = t "word.created"
-      redirect_to admin_category_word_path @word.category, @word
+      redirect_to admin_category_path @word.category
     else
       @words = @category.words.paginate page: params[:page]
-      @word.answers.build if @word.answers.empty?
+      Settings.number_answers.times{@word.answers.build} if @word.answers.empty?
       render "admin/categories/show"
     end
   end
@@ -23,7 +23,7 @@ class Admin::WordsController < ApplicationController
   def update
     if @word && @word.update_attributes(word_params)
       flash[:success] = t "word.updated"
-      redirect_to admin_category_word_path @word.category, @word
+      redirect_to admin_category_path @word.category
     else
       render :edit
     end

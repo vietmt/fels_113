@@ -1,6 +1,42 @@
-<div>
-  <h2><%= @category.name %></h2>
-  <p><%= @category.description %></p>
-  <p><%= link_to t("edit"), edit_admin_category_path(@category) %></p>
-  <%= render "admin/words/word_form" %>
-</div>
+<div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2><%= @category.name %></h2>
+        <p><%= @category.description %></p>
+         <%= render "admin/words/word_form" %>
+      </div>
+      <div class="col-xs-6">
+        <% if @words.any? %>
+          <%= will_paginate @words %>
+          <table class="table table-bordered">
+            <tbody>
+              <% @words.each do |word| %>
+                <tr class="success">
+                  <td>
+                    <%= word.content %>
+                    <%= link_to t("edit"), edit_admin_category_word_path(word.category, word) %> |
+                    <%= link_to t("delete"), admin_category_word_path(word.category, word),
+                      method: :delete, data: {confirm: t("areyousure")} %>
+                  </td>
+                  <td><p><%= image_tag word.image, size: Settings.size_image_of_word if word.image? %></p></td>
+                  <td> <% if word.sound? %>
+                    <%= audio_tag word.sound, class: "audio-play" %>
+                    <p class="btn btn-primary audioButton"><%= t "play" %></p>
+                  <% end %></td>
+                </tr>
+                <% if word.answers.any? %>
+                  <% word.answers.each do |answer| %>
+                    <tr>
+                      <td></td>
+                      <td><%= answer.content %></td>
+                      <td></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>

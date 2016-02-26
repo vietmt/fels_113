@@ -1,6 +1,7 @@
 default_avatar: "rails.png"
 number_description_truncate: 50
 number_user_in_list: 10
+number_activity_in_list: 10
 number_word_in_lessons: 20
 number_answers: 4
 size_image_of_word: 60

@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get "signin" => "sessions#new"
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy"
-  resources :users, except: :destroy
+  resources :users do
+    resources :relationships, only: [:index]
+  end
   resources :relationships, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
   resources :words, only: :index

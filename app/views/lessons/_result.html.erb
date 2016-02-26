@@ -1,14 +1,35 @@
 <h1><%= t "lesson.result" %></h1>
 <%= t "lesson.userlearn" %>: <%= link_to @lesson.user.name, @lesson.user %>
-<% @lesson.lesson_words.each do |ls| %>
-  <li>
-    <%= ls.word.content %>|
-    <% if ls.answer.nil? %>
-      <%= t "answer.requireselect" %>
-    <% else %>
-      <%= t "your_answer" %>: <%= ls.answer.content %>|
-      <%= ls.answer.is_correct ? t("answer.true") :
-        t("answer.false") %>
+<table class="table table-bordered">
+  <thead>
+    <tr class="success">
+      <th>Word</th>
+      <th><%= t "answer.youranswer" %></th>
+      <th><%= t "Result" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lesson.lesson_words.each do |ls| %>
+      <tr>
+        <td>
+          <%= ls.word.content %>
+        </td>
+        <% if ls.answer.nil? %>
+          <td>
+            <%= t "answer.requireselect" %>
+          </td>
+          <td>
+          </td>
+        <% else %>
+          <td>
+            <%= ls.answer.content %>
+          </td>
+          <td>
+            <%= ls.answer.is_correct ? t("answer.true") :
+            t("answer.false") %>
+          </td>
+        <% end %>
+      </tr>
     <% end %>
-  </li>
-<% end %>
+   </tbody>
+</table>
