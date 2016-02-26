@@ -1,0 +1,20 @@
+<%= form_for [:admin, @category, @word] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :category_id, value: @word.category.id %>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: "form-control" %>
+  <%= f.fields_for :answers do |answer| %>
+    <%= render "answer_fields", f: answer %>
+  <% end %>
+  <p><%= link_to_add_fields t("answer.add"), f, :answers %></p>
+  <%= f.label :image %>
+  <span class="picture">
+    <%= f.file_field :image %>
+  </span>
+  <%= f.label :sound %>
+  <span class="picture">
+    <%= f.file_field :sound %>
+  </span>
+  <%= f.submit @word.id? ? t("savechange") : t("word.create") ,
+    class: "btn-primary" %>
+<% end %>

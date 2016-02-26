@@ -2,4 +2,5 @@
   <h2><%= @category.name %></h2>
   <p><%= @category.description %></p>
   <p><%= link_to t("edit"), edit_admin_category_path(@category) %></p>
+  <%= render "admin/words/word_form" %>
 </div>
