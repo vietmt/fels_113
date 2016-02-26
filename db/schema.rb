@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225031907) do
+ActiveRecord::Schema.define(version: 20160225101805) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "content"
+    t.boolean  "is_correct"
+    t.integer  "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "answers", ["word_id"], name: "index_answers_on_word_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -45,5 +55,16 @@ ActiveRecord::Schema.define(version: 20160225031907) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "words", force: :cascade do |t|
+    t.string   "content"
+    t.string   "image"
+    t.string   "sound"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "words", ["category_id"], name: "index_words_on_category_id"
 
 end

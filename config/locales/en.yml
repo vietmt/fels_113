@@ -7,7 +7,9 @@ en:
   home: "Home"
   help: "Help"
   delete: "Delete"
+  edit: "Edit"
   areyousure: "Are you sure?"
+  savechange: "Save changes"
   signin:
     name: "Sign in"
     error: "Invalid email/password combination"
@@ -25,7 +27,6 @@ en:
     profile: "Profile"
     setting: "Setting"
     profileupdated: "Profile updated"
-  savechange: "Save changes"
   errormessages:
     form: "The form contains"
     error: "error"
@@ -46,4 +47,12 @@ en:
     updated: "Category updated"
   admin:
     requiresignin: "You must sign in account Admin"
+  word:
+    create: "Create word"
+    created: "Word created"
+    updated: "Word updated"
+    deleted: "Word deleted"
+    musthasonlyonecorrect: "Must has only one correct answer"
+  answer:
+    add: "Add answer"
 
