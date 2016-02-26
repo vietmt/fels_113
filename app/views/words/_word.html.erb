@@ -1,0 +1,13 @@
+<li>
+  <%= t "content" %>: <%= word.content %>
+  <p><%= image_tag word.image, size: Settings.size_image_of_word if word.image? %></p>
+  <% if word.sound? %>
+    <%= audio_tag word.sound, class: "audio-play" %>
+    <p class="btn btn-primary audioButton"><%= t "play" %></p>
+  <% end %>
+  <% word.answers.each do |answer| %>
+    <p>
+      <%= radio_button_tag word.id, answer.id %> <%= answer.content %>
+    </p>
+  <% end %>
+</li>

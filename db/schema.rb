@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225101805) do
+ActiveRecord::Schema.define(version: 20160226074350) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -31,6 +31,29 @@ ActiveRecord::Schema.define(version: 20160225101805) do
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
+  create_table "lesson_words", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.integer  "word_id"
+    t.integer  "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lesson_words", ["answer_id"], name: "index_lesson_words_on_answer_id"
+  add_index "lesson_words", ["lesson_id"], name: "index_lesson_words_on_lesson_id"
+  add_index "lesson_words", ["word_id"], name: "index_lesson_words_on_word_id"
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.boolean  "learned",     default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "lessons", ["category_id"], name: "index_lessons_on_category_id"
+  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"

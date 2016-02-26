@@ -1,0 +1,29 @@
+<%= form_for words_path, method: :get do |f| %>
+  <p>
+    <%= select_tag :category_id,
+      options_from_collection_for_select(@categories, :id, :name,
+      params[:category_id]),
+      include_blank: t("word.all"), class: "form-control" %>
+  </p>
+  <% Settings.option.each do |option| %>
+    <p>
+      <%= radio_button_tag :option, option,
+        (checked = true if params[:option] == option) %>
+      <%= t "word.#{option}" %>
+    </p>
+    <p>
+  <% end %>
+  <%= f.submit t("filter"), class: "form-control" %>
+<% end %>
+<% if @words.any? %>
+  <% @words.each do |word| %>
+    <div>
+      <%= t "content" %>: <%= word.content %>
+      <p><%= image_tag word.image, size: Settings.size_image_of_word if word.image? %></p>
+      <% if word.sound? %>
+        <%= audio_tag word.sound, class: "audio-play" %>
+        <p class="btn btn-primary audioButton"><%= t "play" %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

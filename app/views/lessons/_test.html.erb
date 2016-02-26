@@ -1,0 +1,16 @@
+<h1><%= t "lesson.name" %></h1>
+<li>
+  <p>
+    <%= t "category.name" %>: <%= link_to @lesson.category.name, @lesson.category %>
+    <%= t "lesson.has" %>: <%= @lesson.words.count %> <%= t "lesson.words" %>
+  </p>
+  <%= form_for @lesson do |f| %>
+    <%= f.hidden_field :learned, value: true %>
+    <%= f.fields_for :lesson_words do |lesson_word| %>
+      <ul>
+        <%= render "word_form", f: lesson_word %>
+      </ul>
+    <% end %>
+    <%= f.submit t("submit") %>
+  <% end %>
+</li>
