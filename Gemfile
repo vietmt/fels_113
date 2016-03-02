@@ -10,6 +10,7 @@ gem "mini_magick", "3.8.0"
 gem "fog", "1.36.0"
 gem "cloudinary"
 gem "config"
+gem "devise"
 
 gem "sass-rails", "5.0.2"
 gem "uglifier", "2.5.3"
