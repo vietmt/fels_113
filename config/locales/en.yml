@@ -40,6 +40,8 @@ en:
     unfollowed: "You already unfollowed"
     follow: "Follow"
     unfollow: "Unfollow"
+    following: "Following"
+    followers: "Followers"
   category:
     name: "Category"
     announce: "You've learned 0/36"
@@ -50,6 +52,7 @@ en:
     createcomplete: "Create category complete"
     updated: "Category updated"
   admin:
+    name: "Admin"
     requiresignin: "You must sign in account Admin"
   word:
     create: "Create word"
@@ -60,11 +63,15 @@ en:
     all_word: "All words"
     learned: "Word learned"
     no_learn: "Word no learn"
+    words: "Words"
+    name: "Word"
   answer:
     add: "Add answer"
     requireselect: "You don't select answer"
     true: "You have true answer"
     false: "You have false answer"
+    content: "Answer"
+    youranswer: "Your answer"
   lesson:
     name: "Lesson"
     newcomplete: "You are create lesson complete"
@@ -75,4 +82,13 @@ en:
     Result: "Result"
     has: "has"
     words: "words"
+    lessons: "Lessons"
+  activity:
+    name: "Activity"
+    follow: "followed"
+    unfollow: "unfollow"
+    learned: "learned"
+    learning: "learning"
+    at: "at"
+    ago: "ago"
 

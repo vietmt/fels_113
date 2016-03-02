@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authorize_user, except: [:new, :create]
-  before_action :find_user, only: [:show, :edit]
+  before_action :find_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   before_action :signed, only: [:new, :create]
 
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.load_own_activities.paginate page: params[:page],
+      per_page: Settings.number_activity_in_list
+    @words = Word.send "learned", @user.id
   end
 
   def new

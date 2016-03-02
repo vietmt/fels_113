@@ -1,13 +1,7 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <p>
-        <%= avatar_for user %>
-        <%= link_to user.name, user %> |
-        <%= link_to t("delete"), admin_user_path(user), method: :delete,
-          data: {confirm: t("areyousure")} unless user == current_user %>
-      </p>
-      <%= user.email %>
-    </section>
-  </aside>
-</div>
+<tr>
+<td><%= avatar_for user %></td>
+<td><%= link_to user.name, user %></td>
+<td><%= user.email %></td>
+<td><%= link_to t("delete"), admin_user_path(user), method: :delete,
+        data: {confirm: t("areyousure")} unless user == current_user %></td>
+</tr>

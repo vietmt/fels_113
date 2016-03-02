@@ -1,8 +1,5 @@
-<div class="fields">
-  <%= render "shared/error_messages", object: f.object %>
-  <%= f.label :content, t("answer_content") %>
-  <%= f.text_field :content, class: "form-control" %>
-  <%= f.label :is_correct %>
-  <%= f.check_box :is_correct %>
-  <%= link_to_remove_fields "remove", f %>
-</div>
+<tr>
+<td><%= f.text_field :content, class: "form-control" %></td>
+<td><%= f.check_box :is_correct %></td>
+<td><%= link_to_remove_fields "remove", f %></td>
+</tr>

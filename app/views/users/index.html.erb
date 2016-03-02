@@ -1,6 +1,17 @@
 <%= provide :title, t("user.list") %>
 <ul>
   <%= will_paginate %>
-  <%= render @users %>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="success">
+        <th>Avatar</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+     </tbody>
+  </table>
   <%= will_paginate %>
 </ul>

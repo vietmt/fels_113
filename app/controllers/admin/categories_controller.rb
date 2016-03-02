@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::ActionBaseController
 
-  before_action :load_category, only: [:show, :edit, :update]
+  before_action :load_category, only: [:show, :edit, :update, :destroy]
 
   def index
     @categories = Category.paginate page: params[:page]
@@ -10,7 +10,7 @@ class Admin::CategoriesController < Admin::ActionBaseController
   def show
     @word = @category.words.new
     Settings.number_answers.times{@word.answers.build}
-    @words = @category.words.paginate page: params[:page]
+    @words = @category.words.paginate page: params[:page], per_page: 2
   end
 
   def create
@@ -35,6 +35,11 @@ class Admin::CategoriesController < Admin::ActionBaseController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to admin_categories_path
   end
 
   private

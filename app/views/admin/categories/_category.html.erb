@@ -3,9 +3,10 @@
     <h3 class="list-group-item-heading">
       <%= link_to category.name, admin_category_path(category) %>
     </h3>
-    <p class="list-group-item-text">
+    <h5><%= category.words.count %> <%= t("word.words") %></h5>
+    <h5>
       <%= category.description.truncate Settings.number_description_truncate %>
-    </p>
-    <p><%= link_to t("edit"), edit_admin_category_path(category) %></p>
+    </h5>
+    <h5><%= link_to t("edit"), edit_admin_category_path(category) %> | <%= link_to t("delete"), admin_category_path(category), method: :delete, data: {confirm: t("areyousure")} %></h5>
   </div>
 </div>

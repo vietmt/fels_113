@@ -1,11 +1,22 @@
 <%= form_for [:admin, @category, @word] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <%= f.hidden_field :category_id, value: @word.category.id %>
-  <%= f.label :content %>
+  <%= f.label t("word.name") %>
   <%= f.text_field :content, class: "form-control" %>
-  <%= f.fields_for :answers do |answer| %>
-    <%= render "answer_fields", f: answer %>
-  <% end %>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="success">
+        <th>Answer Content</th>
+        <th>is Correct</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="form-add-word">
+      <%= f.fields_for :answers do |answer| %>
+        <%= render "answer_fields", f: answer %>
+      <% end %>
+    </tbody>
+  </table>
   <p><%= link_to_add_fields t("answer.add"), f, :answers %></p>
   <%= f.label :image %>
   <span class="picture">

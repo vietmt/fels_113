@@ -1,2 +1,29 @@
 <%= provide :title, t("home") %>
-<%= render signed_in? ? "user_info" : "welcome" %>
+<%if signed_in?%>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <%= render "user_info" %>
+        <%= render "stats" %>
+      </div>
+      <div class="col-xs-9">
+        <div>
+          <%= link_to t("word.words"), words_path(option: "all_word"), class: "btn btn-lg btn-primary" %>
+          <%= link_to t("lesson.lessons"), categories_path, class: "btn btn-lg btn-primary" %>
+        </div>
+        <hr>
+        <div class="col-md-9">
+          <h3>Activity</h3>
+          <% if @activities.any? %>
+            <ul>
+              <%= render @activities %>
+              <%= will_paginate @activities %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%= render "welcome" %>
+<% end %>
