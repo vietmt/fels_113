@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path %></li>
-        <% if signed_in? %>
+        <% if user_signed_in? %>
           <% if current_user.admin? %>
             <li><%= link_to t("category.name"), admin_categories_path %></li>
             <li><%= link_to t("user.list"), admin_users_path %></li>
@@ -22,14 +22,14 @@
               </li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("signout"), signout_path, method: :delete %>
+                <%= link_to t("signout"), destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </li>
 
           <li></li>
         <% else %>
-          <li><%= link_to t("signin.name") , signin_path %></li>
+          <li><%= link_to t("signin.name") , new_user_session_path %></li>
         <% end %>
       </ul>
     </nav>
