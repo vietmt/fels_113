@@ -1,6 +1,5 @@
 class RelationshipsController < ApplicationController
 
-  before_action :authorize_user
   def index
     type = params[:type]
     @user = User.find params[:user_id]

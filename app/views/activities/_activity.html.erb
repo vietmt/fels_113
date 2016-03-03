@@ -1,18 +1,20 @@
-<li>
-  <%= avatar_for activity.user %>
-  <%= link_to activity.user.name, activity.user %>
-  <%= t "activity.#{activity.state}" %>
-  <% case activity.state %>
-  <% when Settings.activity.follow, Settings.activity.unfollow %>
-    <%= link_to activity.load_user.name, activity.load_user %>
-  <% when Settings.activity.learned %>
-    <%= link_to activity.load_lesson.category.name,
-      activity.load_lesson.category %>
-    <%= activity.load_lesson.words.count %>
-    <%= t "lesson.words" %>
-  <% when Settings.activity.learning %>
-    <%= link_to activity.load_lesson.category.name,
-      activity.load_lesson.category %>
-  <% end %>
-  <%= t "activity.at" %> <%= time_ago_in_words activity.created_at %> <%= t "activity.ago" %>.
-</li>
+<% if activity.load_user || activity.load_lesson %>
+  <li>
+    <%= avatar_for activity.user %>
+    <%= link_to activity.user.name, activity.user %>
+    <%= t "activity.#{activity.state}" %>
+    <% case activity.state %>
+    <% when Settings.activity.follow, Settings.activity.unfollow %>
+      <%= link_to activity.load_user.name, activity.load_user %>
+    <% when Settings.activity.learned %>
+      <%= link_to activity.load_lesson.category.name,
+        activity.load_lesson.category %>
+      <%= activity.load_lesson.words.count %>
+      <%= t "lesson.words" %>
+    <% when Settings.activity.learning %>
+      <%= link_to activity.load_lesson.category.name,
+        activity.load_lesson.category %>
+    <% end %>
+    <%= t "activity.at" %> <%= time_ago_in_words activity.created_at %> <%= t "activity.ago" %>.
+  </li>
+<% end %>

@@ -14,6 +14,10 @@ en:
   areyousure: "Are you sure?"
   savechange: "Save changes"
   filter: "Filter"
+  back: "Back"
+  waitconfirm: "Currently waiting confirmation for:"
+  leaveblank: "(leave blank if you don't want to change it)"
+  needpass: "(we need your current password to confirm your changes)"
   signin:
     name: "Sign in"
     error: "Invalid email/password combination"
@@ -31,6 +35,7 @@ en:
     profile: "Profile"
     setting: "Setting"
     profileupdated: "Profile updated"
+    cancelacc: "Cancel my account"
   errormessages:
     form: "The form contains"
     error: "error"
