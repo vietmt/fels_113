@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "help" => "static_pages#help"
   get "about" => "static_pages#about"
-  resources :users do
+  resources :users, only: [:show, :index] do
     resources :relationships, only: [:index]
   end
   resources :relationships, only: [:create, :destroy]

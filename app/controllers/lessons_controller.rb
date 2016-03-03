@@ -1,5 +1,4 @@
 class LessonsController < ApplicationController
-  before_action :authorize_user
   before_action :load_category, only: [:create]
   before_action :load_lesson, only: [:show, :update]
 

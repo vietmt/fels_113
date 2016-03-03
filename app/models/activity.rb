@@ -8,9 +8,9 @@ class Activity < ActiveRecord::Base
 
   scope :all_activities_by, ->user_id {where("user_id in (select followed_id from
     relationships where follower_id = #{user_id}) or user_id = #{user_id}")
-    .order "created_at DESC"}
+    .order created_at: :desc}
   scope :all_own_activities, ->user_id {where("user_id = #{user_id}")
-    .order "created_at DESC"}
+    .order created_at: :desc}
 
   def load_user
     User.find_by id: self.target_id
