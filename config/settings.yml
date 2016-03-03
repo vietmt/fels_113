@@ -5,6 +5,7 @@ number_activity_in_list: 10
 number_word_in_lessons: 20
 number_answers: 4
 size_image_of_word: 60
+log_file: "#{Rails.root}/log/my.log"
 activity:
   follow: "follow"
   unfollow: "unfollow"
